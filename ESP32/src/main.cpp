@@ -64,32 +64,38 @@ void setup() {
 }
 
 void loop() {
-  if (SerialBT.available() >= 4) {
-    byte inBuf[4];
-    SerialBT.readBytes(inBuf, 4);
-
-    int16_t hue1 = (inBuf[1] << 8) | inBuf[0];
-    int16_t hue2 = (inBuf[3] << 8) | inBuf[2];
-
-    Serial.print("Hue1: ");
-    Serial.println(hue1);
-    Serial.print("Hue2: ");
-    Serial.println(hue2);
-
-    uint8_t r1, g1, b1;
-    uint8_t r2, g2, b2;
-
-    // 色相をRGBに変換
-    hueToRGB(hue1, r1, g1, b1);
-    hueToRGB(hue2, r2, g2, b2);
-
-    Serial.printf("%d,%d,%d %d,%d,%d", r1, g1, b1, r2, g2, b2);
-
-    // LEDに反映
-    led.setPixel(0, r1, g1, b1);
-    led.setPixel(1, r2, g2, b2);
+  for (int i = 0; i < 80; i++){
+    led.setBrightness(i);
     led.send();
+    delay(15);
+    if (SerialBT.available() >= 4) {
+      byte inBuf[4];
+      SerialBT.readBytes(inBuf, 4);
 
-    SerialBT.printf("Recieved Hue1: %d (%d,%d,%d), Hue2: %d (%d,%d,%d)\n", hue1, r1, g1, b1, hue2, r2, g2, b2);
+      int16_t hue1 = (inBuf[1] << 8) | inBuf[0];
+      int16_t hue2 = (inBuf[3] << 8) | inBuf[2];
+
+      Serial.print("Hue1: ");
+      Serial.println(hue1);
+      Serial.print("Hue2: ");
+      Serial.println(hue2);
+
+      uint8_t r1, g1, b1;
+      uint8_t r2, g2, b2;
+
+      // 色相をRGBに変換
+      hueToRGB(hue1, r1, g1, b1);
+      hueToRGB(hue2, r2, g2, b2);
+
+      Serial.printf("%d,%d,%d %d,%d,%d", r1, g1, b1, r2, g2, b2);
+
+      // LEDに反映
+      led.setPixel(0, r1, g1, b1);
+      led.setPixel(1, r2, g2, b2);
+      led.setBrightness(i);
+      led.send();
+
+      SerialBT.printf("Recieved Hue1: %d (%d,%d,%d), Hue2: %d (%d,%d,%d)", hue1, r1, g1, b1, hue2, r2, g2, b2);
+    }
   }
 }

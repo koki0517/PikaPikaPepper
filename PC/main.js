@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // 選択した色相をint16_tの形式でエンコード
         const buffer = new ArrayBuffer(4);
         const view = new DataView(buffer);
-        view.setInt16(0, selectedHue1, true); // リトルエンディアンで設定
-        view.setInt16(2, selectedHue2, true); // リトルエンディアンで設定
+        view.setInt16(2, selectedHue1, true); // リトルエンディアンで設定
+        view.setInt16(0, selectedHue2, true); // リトルエンディアンで設定
 
         // シリアル通信の送信者
         const writer = device.writable.getWriter(); // 送信者にロックがかかる
