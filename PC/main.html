@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ペッパーであそぼ</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <header class="header">
+    <h1>ペッパーであそぼ</h1>
+    <ul> 
+      <li><button id="connect">ペッパーくんを接続</button></li>
+      <li><button id="disconnect">ペッパーくんとの接続を切断</button></li>
+      <li><button id="reconnect">ペッパーくんと再接続</button></li>
+      <li><button id="send">コマンドを送信</button></li> <!-- 追加 -->
+    </ul>
+  </header>
+  
+  <div class="color-wheels">
+    <canvas id="colorWheel1" width="200" height="200"></canvas>
+    <canvas id="colorWheel2" width="200" height="200"></canvas>
+  </div>
+  <div class="selected-hues">
+    <p>選択した色相1: <span id="selectedHue1">なし</span></p>
+    <p>選択した色相2: <span id="selectedHue2">なし</span></p>
+  </div>
+  
+  <pre id="output">log: </pre>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

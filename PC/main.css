@@ -1,0 +1,61 @@
+.header {
+  z-index: 10;
+  height: auto; /* 高さを自動調整 */
+  position: relative; /* 位置を相対に変更 */
+  top: 0px;
+  background-color: #71d4ff;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.header h1 {
+  color: #fff;
+  margin: 0;
+  padding: 10px 0; /* 上下のパディングを狭くする */
+}
+
+ul {
+  overflow: hidden;
+  list-style: none;
+  margin: 0 auto;
+  z-index: 20;
+  /* padding-top: 64px; 削除 */
+}
+
+ul li {
+  display: inline-block;
+  padding: 26px 10px 20px 10px;
+  color: #fff;
+}
+
+pre {
+  background-color: #f8f8f8;
+  padding: 10px;
+  border: 1px solid #ccc;
+  overflow: auto;
+  white-space: pre-wrap; /* 改行を保持 */
+  word-wrap: break-word; /* 長い単語を折り返す */
+  margin-top: 20px; /* ヘッダーの下にスペースを追加 */
+}
+
+.color-wheels {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.color-wheels canvas {
+  margin: 0 40px; /* 間隔を広げる */
+}
+
+.selected-hues {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.selected-hues p {
+  margin: 5px 70px; /* 左右に間隔を追加 */
+}
